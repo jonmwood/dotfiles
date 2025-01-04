@@ -1,0 +1,41 @@
+# ====== Dock ======
+# Remove all default dock apps 
+defaults write com.apple.dock persistent-apps -array
+# Show only open apps
+defaults write com.apple.dock static-only -bool true
+# Hide dock
+defaults write com.apple.dock autohide -bool true && killall Dock
+
+# ====== Trackpad ======
+# Trackpad pointer speed 
+defaults write -g com.apple.mouse.scaling  6.0
+# Scroll reverser
+defaults write -g com.apple.swipescrolldirection -bool FALSE`
+
+# ====== Keyboard ======
+# Enable key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+# repeat speed
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# ====== Accessibility KeyRepeat ======
+defaults write com.apple.Accessibility KeyRepeatDelay -float 0.163333333
+defaults write com.apple.Accessibility KeyRepeatInterval -float 0.004666666
+		
+# Enable smart dashes -- 
+defaults write 'Apple Global Domain' NSAutomaticDashSubstitutionEnabled 1
+
+# ====== Default Browser ======
+# Default browser
+# Brave
+open -a "Brave Browser" --args --make-default-browser
+
+# ====== Finder ======
+# Show hidden files in Finder
+defaults write com.apple.finder "AppleShowAllFiles" -bool "true" && killall Finder
+# Show Library
+chflags nohidden ~/Library
+# Show path bar
+defaults write com.apple.finder "ShowPathbar" -bool "true" && killall Finder
+
